@@ -9,8 +9,6 @@
   <body>
     <h1>ICS3U Portfolio</h1>
     <h2>Alexander Galstyan</h2>
-    <img src="" alt="">
-
     <p>Top 10 Modules Worked on This Semester:</p>
 
     <ol>
@@ -27,6 +25,41 @@
     </ol>
 
    
+    
+    <script>
+    var xPositions = [];
+var yPositions = [0];
+
+for(var j = 0; j <= 25; j++) {
+    var o = Math.floor(Math.random()*40)*10;
+    xPositions.push(o);
+    var e = 0;
+    yPositions.push(e);
+    }
+
+draw = function() {
+    background(204, 248, 255);
+
+    noStroke();
+    fill(0, 200, 255);
+
+    for (var i = 0; i < xPositions.length; i++) {
+        ellipse(xPositions[i], yPositions[i], 5, 10);
+        yPositions[i] += 5;
+        yPositions[i*Math.floor(Math.random()*10)] += 5;
+        if (yPositions[i] > 400) {
+            if (xPositions > 200){
+            xPositions[i] = xPositions[i] - Math.floor(Math.random()*40);
+            }
+            if (xPositions < 200){
+            xPositions[i] = xPositions[i] + Math.floor(Math.random()*40);
+            }
+        yPositions[i] = 0;
+            
+        } 
+    }
+};
+    </script>
     <p>Some stuff I <a href="ics3u-portfolio/portfolio.html">did</a> within the duration of the course.</p>
   </body>
 </html>
