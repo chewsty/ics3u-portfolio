@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <script src="p5.js"></script>
+    <meta charset="utf-8" />
+    <title>ICS-3U Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>ICS3U Portfolio</h1>
+    <h2>Alexander Galstyan</h2>
+    <ul>
+      <li><p>
+     
+     
+      Make it Rain challenge from Khan Academy <br>
+         <canvas id="mycanvas"></canvas>
+        <br> I had fun doing this particular
+        challenge. It was interesting to find out how to get random numbers and also make the whole thing update itself each time.
+        
+        </p></li>
+<li>
+    <p>
+      <a href="https://makecode.microbit.org/_cCi8r2F0RFd0">Pet microbit</a>
+      <br>Pet code made in the Makecode Block editor for the microbit assignement. We made a pet that changes its' mood based on different inputs. It has a different mood for each
+  </p></li>
+      <li>
+        <iframe height="400px" width="400px" src="https://editor.p5js.org/chewsty/full/P9On0zshMj"></iframe>
+        <br>Creative coding challenge coded along with one of the groups. I made some slight adjustments and some parts of the code look different from the original but it works.
+      </li>
+      <li>
+        <iframe height="400px" width="400px" src="https://editor.p5js.org/chewsty/full/QLdovQvf6"></iframe>
+        <br> Another one of the challenges done along with another group. This one was fun to make and it looks cool.
+      </li>
+    </ul>
+  </body>
+  
+  <script src="https://cdn.jsdelivr.net/processing.js/1.4.8/processing.min.js"></script>
+  <script>
+    var programCode = function (processingInstance) {
+      with (processingInstance) {
+        size(400, 400);
+        frameRate(30);
 
+        // Paste code from Khan Academy here:
+        var xPositions = [];
+        var yPositions = [0];
+
+        for (var j = 0; j <= 25; j++) {
+          var o = Math.floor(Math.random() * 40) * 10;
+          xPositions.push(o);
+          var e = 0;
+          yPositions.push(e);
+        }
+
+        draw = function () {
+          background(204, 248, 255);
+
+          noStroke();
+          fill(0, 200, 255);
+
+          for (var i = 0; i < xPositions.length; i++) {
+            ellipse(xPositions[i], yPositions[i], 5, 10);
+            yPositions[i] += 5;
+            yPositions[i * Math.floor(Math.random() * 10)] += 5;
+            if (yPositions[i] > 400) {
+              if (xPositions > 200) {
+                xPositions[i] = xPositions[i] - Math.floor(Math.random() * 40);
+              }
+              if (xPositions < 200) {
+                xPositions[i] = xPositions[i] + Math.floor(Math.random() * 40);
+              }
+              yPositions[i] = 0;
+            }
+          }
+        };
+      }
+    };
+
+    // Get the canvas that ProcessingJS will use
+    var canvas = document.getElementById("mycanvas");
+    // Pass the function to ProcessingJS constructor
+    var processingInstance = new Processing(canvas, programCode);
+  </script>
+  <script></script>
+</html>
